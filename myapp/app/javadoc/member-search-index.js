@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"bitcamp.myapp.ex02","c":"Exam0100","l":"Exam0100()","u":"%3Cinit%3E()"},{"p":"bitcamp.myapp.ex02","c":"Exam0100","l":"main(String[])","u":"main(java.lang.String[])"}];updateSearchResults();

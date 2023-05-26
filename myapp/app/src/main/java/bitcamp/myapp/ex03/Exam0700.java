@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 이스케이프 문자(escape character) = 문자 제어 코드
 //- 화면에 출력하는 문자가 아니라 문자 출력을 제어하는 문자이다.
@@ -16,7 +16,7 @@ public class Exam0700 {
   public static void main(String[] args) {
     System.out.println("Hello,world!"); 
     System.out.println("Hello,\nworld!"); // 줄바꿈 문자
-    System.out.println("Hello,\rabc"); // 커서(cursor)를 처음으로 돌리는 문자
+    System.out.println("Hello,\rabc"); // 커서(cursor)를 처음으로 돌리는 문자 -> abclo,
     // 커서란? 문자를 출력할 위치를 가리키는 것.
 
     System.out.println("Hello,\b\b\bworld!"); // 커서를 뒤로 한 칸 이동시키는 문자

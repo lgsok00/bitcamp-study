@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 문자열 리터럴
 //- 자바의 기본 타입이 아니라 객체이다.

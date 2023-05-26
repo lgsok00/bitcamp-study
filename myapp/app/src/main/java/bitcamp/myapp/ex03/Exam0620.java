@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 문자열 리터럴과 + 연산자
 //- 문자열 연결 연산자(concatenation): +

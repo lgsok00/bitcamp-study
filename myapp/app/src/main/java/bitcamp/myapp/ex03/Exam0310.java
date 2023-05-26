@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 부동소수점 리터럴
 //- 컴퓨터는 1과 0으로 데이터를 저장한다.

@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 부동소수점 리터럴 - 유효자릿수
 //- 정수처럼 메모리 크기(4바이트 또는 8바이트)에 따라 표현할 수 있는 부동소수점의 범위가 다르다.

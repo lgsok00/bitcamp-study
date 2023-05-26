@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 논리값 리터럴
 //- 참, 거짓을 표현할 때 사용한다.

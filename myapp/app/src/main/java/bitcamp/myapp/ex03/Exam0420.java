@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 문자의 리터럴 - 문자 집합(character set)
 //- 자바는 문자를 다룰 때 2바이트 값으로 다룬다.

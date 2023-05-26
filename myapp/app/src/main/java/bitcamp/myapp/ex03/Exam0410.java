@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 문자의 리터럴
 //- 작은 따옴표 ''를 사용하여 문자를 표현한다.

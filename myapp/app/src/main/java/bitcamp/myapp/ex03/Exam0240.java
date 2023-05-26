@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex03;
+package bitcamp.myapp.ex03;
 
 //# 정수 리터럴 - 메모리에 저장하는 방법
 //- 컴퓨터에서는 값을 저장할 때 전기 신호(예: RAM) 또는 자기 신호(예: HDD)로 저장한다.

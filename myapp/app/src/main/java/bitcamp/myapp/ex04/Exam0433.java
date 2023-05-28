@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex04;
+package bitcamp.myapp.ex04;
 
 //# 문자 변수 - 따옴표('', single quotation) 활용하기
 //
@@ -7,7 +7,7 @@ public class Exam0433 {
 
     // 문자 코드 값을 모른다면 따옴표를 사용하라!
     // - 문법
-    //   '문자' : UCS-2에 정의된 코드 값을 리턴한다.
+    //  '문자' : UCS-2에 정의된 코드 값을 리턴한다.
     //
     char c = 'A';  // c 변수에 저장되는 것은 문자 'A'의 UCS-2 코드 값이다.
     System.out.println(c);

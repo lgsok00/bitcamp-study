@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex04;
+package bitcamp.myapp.ex04;
 
 //# 배열 - 배열이 필요할 때: 같은 종류의 메모리를 많이 다룰 경우 
 //

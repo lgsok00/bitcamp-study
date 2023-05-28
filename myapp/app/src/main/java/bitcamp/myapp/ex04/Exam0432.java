@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex04;
+package bitcamp.myapp.ex04;
 
 //# 문자 변수 - UCS-2 문자 코드 값 저장
 //

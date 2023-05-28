@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex04;
+package bitcamp.myapp.ex04;
 
 //# 레퍼런스 변수
 //

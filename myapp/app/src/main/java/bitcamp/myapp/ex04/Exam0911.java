@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex04;
+package bitcamp.myapp.ex04;
 
 //# 값 저장과 메모리 크기 - 정수는 부동소수점 메모리에 저장할 수 있다.
 //주의!

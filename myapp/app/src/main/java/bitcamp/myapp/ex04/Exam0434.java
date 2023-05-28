@@ -1,5 +1,5 @@
 // 문자 변수 - UCS-2 코드 확인하기
-package com.eomcs.lang.ex04;
+package bitcamp.myapp.ex04;
 
 public class Exam0434 {
   public static void main(String[] args) {

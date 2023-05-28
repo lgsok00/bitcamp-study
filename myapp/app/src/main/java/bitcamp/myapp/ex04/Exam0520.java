@@ -1,4 +1,4 @@
-package com.eomcs.lang.ex04;
+package bitcamp.myapp.ex04;
 
 //# 배열 - 배열 메모리에 방법
 // 배열 메모리에 접근

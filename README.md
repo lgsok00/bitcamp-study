@@ -75,3 +75,9 @@
     - 변수 선언, 변수에 값 할당
     - Primitive Data Type 소개 : byte, short, int, long, char, float, double, boolean
 - 프로젝트 실습
+    - 3. 변수를 사용하여 데이터를 저장하기
+
+
+### 6일 (5/30, 화)
+
+- 자바 프로그래밍

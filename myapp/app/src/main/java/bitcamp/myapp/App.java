@@ -10,36 +10,47 @@ public class App {
 
     // 키보드 스캐너 준비
     Scanner scanner = new Scanner(System.in);
-    
-    System.out.print("번호? : ");
-    int no = scanner.nextInt();
 
-    System.out.print("이름? : ");
-    String name = scanner.next();
+    int[] no = new int[3]; // no : 레퍼런스 변수
+    String[] name = new String[3];
+    int[] age = new int[3];
+    boolean[] working = new boolean[3];
+    char[] gender = new char[3];
+    float[] leftEye = new float[3];
+    float[] rightEye = new float[3];
 
-    System.out.print("나이? : ");
-    int age = scanner.nextInt();
+    for (int count = 0; count < 3; count++) {
 
-    System.out.print("재직여부(true/false)? : ");
-    boolean working = scanner.nextBoolean();
+      System.out.print("번호? : ");
+      no[count] = scanner.nextInt();
 
-    System.out.print("성별(남자:M, 여자:W)? : ");
-    String str = scanner.next();
-    char gender = str.charAt(0);
+      System.out.print("이름? : ");
+      name[count] = scanner.next();
 
-    System.out.print("시력(왼쪽, 오른쪽)? : ");
-    float leftEye = scanner.nextFloat();
-    float rightEye = scanner.nextFloat();
+      System.out.print("나이? : ");
+      age[count] = scanner.nextInt();
 
-    scanner.close();
+      System.out.print("재직여부(true/false)? : ");
+      working[count] = scanner.nextBoolean();
+
+      System.out.print("성별(남자:M, 여자:W)? : ");
+      String str = scanner.next();
+      gender[count] = str.charAt(0);
+
+      System.out.print("시력(왼쪽, 오른쪽)? : ");
+      leftEye[count] = scanner.nextFloat();
+      rightEye[count] = scanner.nextFloat();
+    }
 
     System.out.println("------------------------------");
-
-    System.out.printf("번호 : %d\n", no);
-    System.out.printf("이름 : %s\n", name);
-    System.out.printf("나이 : %d\n", age);
-    System.out.printf("재직자 : %b\n", working);
-    System.out.printf("성별(남자(M), 여자(W)) : %c\n", gender);
-    System.out.printf("좌우시력 : %.1f, %.1f\n", leftEye, rightEye);
+    for (int count = 0; count < 3; count++) {
+      System.out.printf("번호 : %d\n", no[count]);
+      System.out.printf("이름 : %s\n", name[count]);
+      System.out.printf("나이 : %d\n", age[count]);
+      System.out.printf("재직자 : %b\n", working[count]);
+      System.out.printf("성별(남자(M), 여자(W)) : %c\n", gender[count]);
+      System.out.printf("좌우시력 : %.1f, %.1f\n", leftEye[count], rightEye[count]);
+    }
+    scanner.close();
   }
 }

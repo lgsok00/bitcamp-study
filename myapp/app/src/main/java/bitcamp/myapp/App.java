@@ -4,36 +4,33 @@ package bitcamp.myapp;
 import java.util.Scanner;
 
 public class App {
+  // 키보드 스캐너 준비
+  static Scanner scanner = new Scanner(System.in);
+  static final int MAX_SIZE = 100; // final -> 상수 선언 (값을 바꿀 수 없음)
+
+  static int[] no = new int[MAX_SIZE];
+  static String[] name = new String[MAX_SIZE];
+  static String[] email = new String[MAX_SIZE];
+  static String[] password = new String[MAX_SIZE];
+  static char[] gender = new char[MAX_SIZE];
+
+  static int userId = 1; // 회원 번호
+                         // 중간에 번호가 삭제되더라도 빈 곳을 메꾸지 않음
+  static int length = 0; // 입력받은 회원정보 수
+
   public static void main(String[] args) {
-
-    // 키보드 스캐너 준비
-    Scanner scanner = new Scanner(System.in);
-
-    final int MAX_SIZE = 100; // final -> 상수 선언 (값을 바꿀 수 없음)
-    int userId = 1; // 회원 번호
-                    // 중간에 번호가 삭제되더라도 빈 곳을 메꾸지 않음
-    int length = 0; // 입력받은 회원정보 수
-
-    int[] no = new int[MAX_SIZE];
-    String[] name = new String[MAX_SIZE];
-    String[] email = new String[MAX_SIZE];
-    String[] password = new String[MAX_SIZE];
-    char[] gender = new char[MAX_SIZE];
 
     printTitle();
 
     // 화원 정보 등록
-    for (int i = 0; i < MAX_SIZE; i++) {
-      inputMember(scanner, i, name, email, password, gender, no, userId++);
-
-      length++;
-
-      if (!promptContinue(scanner)) {
+    while (length < MAX_SIZE) {
+      inputMember();
+      if (!promptContinue()) {
         break;
       }
     }
 
-    printMembers(length, no, name, email, gender);
+    printMembers();
 
     scanner.close();
   }
@@ -43,16 +40,15 @@ public class App {
     System.out.println("----------------------------");
   }
 
-  static void inputMember(Scanner scanner, int i, String[] name,
-      String[] email, String[] password, char[] gender, int[] no, int userId) {
+  static void inputMember() {
     System.out.print("이름? : ");
-    name[i] = scanner.next(); // 사용자가 문자열을 입력하고 enter 입력 전까지 기다림
+    name[length] = scanner.next(); // 사용자가 문자열을 입력하고 enter 입력 전까지 기다림
 
     System.out.print("이메일? : ");
-    email[i] = scanner.next();
+    email[length] = scanner.next();
 
     System.out.print("암호? : ");
-    password[i] = scanner.next();
+    password[length] = scanner.next();
 
     // 무효한 번호를 눌렀을 시
     // while 문 - 무한 루프
@@ -70,19 +66,20 @@ public class App {
       // switch 문
       switch (menuNo) {
         case "1":
-          gender[i] = 'M';
+          gender[length] = 'M';
           break loop;
         case "2":
-          gender[i] = 'W';
+          gender[length] = 'W';
           break loop;
         default:
           System.out.println("무효한 번호입니다.");
       }
     }
-    no[i] = userId++;
+    no[length] = userId++;
+    length++;
   }
 
-  static boolean promptContinue(Scanner scanner) {
+  static boolean promptContinue() {
     // 계속 할지 여부
     System.out.print("계속 하시겠습니까?(Y/n) ");
     String response = scanner.nextLine();
@@ -94,7 +91,7 @@ public class App {
     return true;
   }
 
-  static void printMembers(int length, int[] no, String[] name, String[] email, char[] gender) {
+  static void printMembers() {
     System.out.println("------------------------------");
     System.out.print("번호, 이름, 이메일, 성별\n");
     System.out.println("------------------------------");

@@ -1,4 +1,6 @@
+package com.eomcs.lang;
 //# 패키지 무소속 클래스
+
 //- 특정 패키지에 소속이 되지 않은 클래스이다.
 //
 //## 문법
@@ -26,19 +28,19 @@ class Hello4 {
   }
 }
 
-//## 실습
-//1) 컴파일하기
-//- 프로젝트 폴더에서 실행 할 때:
-//  예) $ javac -d bin/main src/main/java/com/eomcs/lang/Hello4.java
-//- 클래스 파일은 클래스 파일을 두는 폴더의 루트에 생성된다.
-//  예) /bin/main/Hello4.class
+// ## 실습
+// 1) 컴파일하기
+// - 프로젝트 폴더에서 실행 할 때:
+// 예) $ javac -d bin/main src/main/java/com/eomcs/lang/Hello4.java
+// - 클래스 파일은 클래스 파일을 두는 폴더의 루트에 생성된다.
+// 예) /bin/main/Hello4.class
 //
-//2) 실행하기
-//- 패키지에 소속된 클래스가 아니기 때문에 패키지 지정없이 클래스 이름만 지정해야 한다.
-//  java [-classpath | -cp] [루트 패키지가 있는 디렉토리 경로] [패키지 이름을 포함한 클래스 이름]
-//  예) $ java -cp bin/main Hello4
+// 2) 실행하기
+// - 패키지에 소속된 클래스가 아니기 때문에 패키지 지정없이 클래스 이름만 지정해야 한다.
+// java [-classpath | -cp] [루트 패키지가 있는 디렉토리 경로] [패키지 이름을 포함한 클래스 이름]
+// 예) $ java -cp bin/main Hello4
 //
-//* 주의!
-//- 소스 파일이 있는 위치를 패키지로 간주하고 다음과 같이 패키지를 지정한다면 컴파일 오류가 발생한다.
-//  예) $ java -cp bin/main com.eomcs.lang.Hello4
+// * 주의!
+// - 소스 파일이 있는 위치를 패키지로 간주하고 다음과 같이 패키지를 지정한다면 컴파일 오류가 발생한다.
+// 예) $ java -cp bin/main com.eomcs.lang.Hello4
 //

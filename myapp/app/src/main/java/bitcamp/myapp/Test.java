@@ -1,23 +1,40 @@
 package bitcamp.myapp;
 
-// 소스 코드에서 Calculator 클래스는 bitcamp.util 패키지에 소속된 클래스를 가리킨다.
-// 컴파일러는 import 문장을 다 컴파일하지 않는다. -> 컴파일러에게 알려주는 역할
-import bitcamp.util.Calculator;
-
 public class Test {
 
   public static void main(String[] args) {
-    // 2 * 3 + 7 - 2 / 2 = ?
-    // => 연산자 우선 순위를 고려하지 않고 앞에서부터 뒤로 순차적으로 계산한다.
+    String name;
+    int kor;
+    int eng;
+    int math;
+    int sum;
+    float aver;
 
-    // int result = 0; -> 로컬 변수는 자동으로 초기화되지 않는다.
+    name = "홍길동";
+    kor = 100;
+    eng = 90;
+    math = 85;
+    sum = kor + eng + math;
+    aver = (float) sum / 3;
 
-    Calculator.init(2);
-    Calculator.multiple(3);
-    Calculator.plus(7);
-    Calculator.minus(2);
-    Calculator.divide(2);
-    System.out.println(Calculator.result);
+    System.out.printf("%s: %d, %d, %d, %d, %.1f\n", name, kor, eng, math, sum, aver);
+
+    name = "임꺽정";
+    kor = 90;
+    eng = 80;
+    math = 75;
+    sum = kor + eng + math;
+    aver = (float) sum / 3;
+
+    System.out.printf("%s: %d, %d, %d, %d, %.1f\n", name, kor, eng, math, sum, aver);
+
+    name = "유관순";
+    kor = 80;
+    eng = 70;
+    math = 65;
+    sum = kor + eng + math;
+    aver = (float) sum / 3;
+
+    System.out.printf("%s: %d, %d, %d, %d, %.1f\n", name, kor, eng, math, sum, aver);
   }
-
 }

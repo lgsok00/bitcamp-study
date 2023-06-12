@@ -1,16 +1,13 @@
 package bitcamp.test.step13.vo;
 
-// App(다른 패키지) 이 접근하도록 하기 위해 public
 public class Score {
   public String name;
   int kor;
   int eng;
   int math;
-  // 변수 접근 차단 : private
   public int sum;
   public float aver;
 
-  // 생성자 : 인스턴스를 생성한 직후 호출하는 메서드
   public Score(String name, int kor, int eng, int math) {
     this.name = name;
     this.kor = kor;
@@ -19,7 +16,7 @@ public class Score {
     this.compute();
   }
 
-  void compute() {  
+  void compute() {
     this.sum = this.kor + this.eng + this.math;
     this.aver = this.sum / 3f;
   }

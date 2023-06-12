@@ -3,10 +3,10 @@ package bitcamp.test.step05;
 // 1) 낱개의 변수 사용
 // 2) 낱개의 변수 재사용
 // 3) 배열 사용
-// 4) 클래스를 이용하여 데이터 타입 정의 (중첩 클래스; 로컬 클래스)
-// 5) 출력 기능을 별도의 메서드로 분리 (중첩 클래스; 스태틱 클래스)
+// 4) 클래스를 이용하여 데이터 타입 정의(중첩클래스; 로컬 클래스)
+// 5) 출력 기능을 별도의 메서드로 분리(중첩클래스; 스태틱 중첩 클래스) 
 public class App {
-
+  
   static class Score {
     String name;
     int kor;
@@ -17,7 +17,6 @@ public class App {
   }
   
   public static void main(String[] args) {
-    
 
     final int MAX_SIZE = 10;
     Score[] scores = new Score[MAX_SIZE];

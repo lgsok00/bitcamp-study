@@ -1,20 +1,13 @@
 package bitcamp.myapp;
 
 import bitcamp.myapp.handler.BoardHandler;
+import bitcamp.myapp.handler.BoardHandler2;
 import bitcamp.myapp.handler.MemberHandler;
 import bitcamp.util.Prompt;
 
 public class App {
-  
+
   public static void main(String[] args) {
-
-    // 기본 생성자를 이용해 Prompt 인스턴스를 준비한다.
-    // => 기본 생성자는 Scanner를 키보드와 연결한다.
-    Prompt prompt = new Prompt();
-
-    MemberHandler memberHandler = new MemberHandler(prompt);
-    BoardHandler boardHandler = new BoardHandler(prompt);
-    BoardHandler readingHandler = new BoardHandler(prompt);
 
     printTitle();
 
@@ -27,37 +20,37 @@ public class App {
       } else if (menuNo.equals("menu")) {
         printMenu();
       } else if (menuNo.equals("1")) {
-        memberHandler.inputMember();
+        MemberHandler.inputMember();
       } else if (menuNo.equals("2")) {
-        memberHandler.printMembers();
+        MemberHandler.printMembers();
       } else if (menuNo.equals("3")) {
-        memberHandler.viewMember();
+        MemberHandler.viewMember();
       } else if (menuNo.equals("4")) {
-        memberHandler.updateMember();
+        MemberHandler.updateMember();
       } else if (menuNo.equals("5")) {
-        memberHandler.deleteMember();
+        MemberHandler.deleteMember();
       } else if (menuNo.equals("6")) {
-        boardHandler.inputBoard();
+        BoardHandler.inputBoard();
       } else if (menuNo.equals("7")) {
-        boardHandler.printBoards();
+        BoardHandler.printBoards();
       } else if (menuNo.equals("8")) {
-        boardHandler.viewBoard();
+        BoardHandler.viewBoard();
       } else if (menuNo.equals("9")) {
-        boardHandler.updateBoard();
+        BoardHandler.updateBoard();
       } else if (menuNo.equals("10")) {
-        boardHandler.deleteBoard();
-      } else if (menuNo.equals("11")) {
-        readingHandler.inputBoard();
+        BoardHandler.deleteBoard();
+      }  else if (menuNo.equals("11")) {
+        BoardHandler2.inputBoard();
       } else if (menuNo.equals("12")) {
-        readingHandler.printBoards();
+        BoardHandler2.printBoards();
       } else if (menuNo.equals("13")) {
-        readingHandler.viewBoard();
+        BoardHandler2.viewBoard();
       } else if (menuNo.equals("14")) {
-        readingHandler.updateBoard();
+        BoardHandler2.updateBoard();
       } else if (menuNo.equals("15")) {
-        readingHandler.deleteBoard();
+        BoardHandler2.deleteBoard();
       } else {
-        System.out.println("메뉴 번호가 옳지 않습니다!");
+        System.out.println(menuNo);
       }
     }
 

@@ -5,16 +5,8 @@ import bitcamp.myapp.handler.MemberHandler;
 import bitcamp.util.Prompt;
 
 public class App {
-  
+
   public static void main(String[] args) {
-
-    // 기본 생성자를 이용해 Prompt 인스턴스를 준비한다.
-    // => 기본 생성자는 Scanner를 키보드와 연결한다.
-    Prompt prompt = new Prompt();
-
-    MemberHandler memberHandler = new MemberHandler(prompt);
-    BoardHandler boardHandler = new BoardHandler(prompt);
-    BoardHandler readingHandler = new BoardHandler(prompt);
 
     printTitle();
 
@@ -27,37 +19,27 @@ public class App {
       } else if (menuNo.equals("menu")) {
         printMenu();
       } else if (menuNo.equals("1")) {
-        memberHandler.inputMember();
+        MemberHandler.inputMember();
       } else if (menuNo.equals("2")) {
-        memberHandler.printMembers();
+        MemberHandler.printMembers();
       } else if (menuNo.equals("3")) {
-        memberHandler.viewMember();
+        MemberHandler.viewMember();
       } else if (menuNo.equals("4")) {
-        memberHandler.updateMember();
+        MemberHandler.updateMember();
       } else if (menuNo.equals("5")) {
-        memberHandler.deleteMember();
+        MemberHandler.deleteMember();
       } else if (menuNo.equals("6")) {
-        boardHandler.inputBoard();
+        BoardHandler.inputBoard();
       } else if (menuNo.equals("7")) {
-        boardHandler.printBoards();
+        BoardHandler.printBoards();
       } else if (menuNo.equals("8")) {
-        boardHandler.viewBoard();
+        BoardHandler.viewBoard();
       } else if (menuNo.equals("9")) {
-        boardHandler.updateBoard();
+        BoardHandler.updateBoard();
       } else if (menuNo.equals("10")) {
-        boardHandler.deleteBoard();
-      } else if (menuNo.equals("11")) {
-        readingHandler.inputBoard();
-      } else if (menuNo.equals("12")) {
-        readingHandler.printBoards();
-      } else if (menuNo.equals("13")) {
-        readingHandler.viewBoard();
-      } else if (menuNo.equals("14")) {
-        readingHandler.updateBoard();
-      } else if (menuNo.equals("15")) {
-        readingHandler.deleteBoard();
-      } else {
-        System.out.println("메뉴 번호가 옳지 않습니다!");
+        BoardHandler.deleteBoard();
+      }else {
+        System.out.println(menuNo);
       }
     }
 
@@ -75,11 +57,6 @@ public class App {
     System.out.println("8. 게시글조회");
     System.out.println("9. 게시글변경");
     System.out.println("10. 게시글삭제");
-    System.out.println("11. 독서록등록");
-    System.out.println("12. 독서록목록");
-    System.out.println("13. 독서록조회");
-    System.out.println("14. 독서록변경");
-    System.out.println("15. 독서록삭제");
     System.out.println("99. 종료");
   }
 

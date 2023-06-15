@@ -3,7 +3,7 @@ package bitcamp.myapp.handler;
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.Prompt;
 
-public class BoardHandler implements Handler {
+public class BoardHandler {
 
   private static final int MAX_SIZE = 100;
 
@@ -17,7 +17,7 @@ public class BoardHandler implements Handler {
     this.title = title;
   }
 
-  public void execute() {
+  public void service() {
 
     printMenu();
 

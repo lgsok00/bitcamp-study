@@ -102,3 +102,6 @@
   - 생성자 도입: Scanner 사용할 입력 도구를 지정할 수 있게 한다.
 - 의존 객체 주입의 개념과 구현
   - 생성자를 통해 Prompt 객체를 Handler에 주입
+
+
+  ## 16. GRASP 패턴 : Information Expert

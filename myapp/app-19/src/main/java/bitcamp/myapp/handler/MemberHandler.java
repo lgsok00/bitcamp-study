@@ -1,6 +1,7 @@
 package bitcamp.myapp.handler;
 
 import bitcamp.myapp.vo.Member;
+import bitcamp.util.ArrayList;
 import bitcamp.util.Prompt;
 
 // MemberHandler 는 Handler 규칙에 따라 메서드를 구현했다.

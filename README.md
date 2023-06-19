@@ -1,8 +1,8 @@
 # 네이버 클라우드 7기(2023-04-24 ~ 2023-10-27)
 
-## 구글 미트 접속
+## 웨일즈 화상회의
 
-https://meet.google.com/sya-jckw-ivq
+https://whaleon.us/o/CSrtk1/001aa759f29c46b985e32dd8562f594a
 
 ## 학습 내용
 
@@ -157,7 +157,6 @@ https://meet.google.com/sya-jckw-ivq
       - 이름, url
     - to: jinyoung.eom@gmail.com
 
-
 ### 12일(6/8,목)
 
 - 프로젝트 실습
@@ -166,7 +165,6 @@ https://meet.google.com/sya-jckw-ivq
   - 개인 프로젝트 시연(17:10)
   - 프로그래머스 일별 점수 보고(6/7)
   - github.com 잔디 확인
-
 
 ### 13일(6/9,금)
 
@@ -179,7 +177,6 @@ https://meet.google.com/sya-jckw-ivq
     - GoF의 Design Patters: Factory Method 패턴 소개
     - 생성자 사용법
     - private/public, setter/getter 사용법
-
 
 ### 14일(6/12,월)
 
@@ -196,7 +193,6 @@ https://meet.google.com/sya-jckw-ivq
 - 프로젝트 실습
   - 12. 생성자, 셋터, 겟터 도입하기
 
-
 ### 15일(6/13,화)
 
 - 자바 프로그래밍(com.eomcs.oop.ex03.*)
@@ -206,7 +202,6 @@ https://meet.google.com/sya-jckw-ivq
 - 프로젝트 실습
   - 13. 게시판 관리 기능 추가
 
-
 ### 16일(6/14,수)
 
 - 프로젝트 실습
@@ -215,7 +210,28 @@ https://meet.google.com/sya-jckw-ivq
   - 15. 인스턴스 필드와 인스턴스 메서드, 생성자와 의존 객체 주입
   
 
-### 17일(6/)
+### 17일(6/15,목)
+
+- 자바 프로그래밍(com.eomcs.oop.ex03.*)
+  - Eclipse IDE로 디버깅하는 방법
+- 프로젝트 실습
+  - 16. GRASP 패턴: Information Expert 적용
+  - 17. 인터페이스를 이용한 객체 사용 규칙 정의
+  - 18. 인스턴스 목록 제어 기능을 별도의 클래스로 캡슐화: 재사용성 높임
+
+### 18일(6/16,금)
+
+- 자바 프로그래밍(com.eomcs.basic.ex01.*)
+  - java.lang.Object 클래스 사용법
+- 프로젝트 실습
+  - 19. 다형성을 이용하여 범용으로 사용할 수 있는 목록 클래스 만들기
+
+### 19일(6/19,월)
+
+- 프로젝트 실습
+  - 20. LinkedList 자료구조 구현하기
+  - 21. 인터페이스를 이용하여 List 사용 규칙 정의하기
+
 ## 웨일즈 화상회의
 
 https://whaleon.us/o/CSrtk1/001aa759f29c46b985e32dd8562f594a

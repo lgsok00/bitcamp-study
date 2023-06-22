@@ -22,13 +22,10 @@ public class Exam03 {
     // 그럼?
     // Car의 하위 클래스의 인스턴스를 리턴한다는 뜻이다.
     //
-    //    return new Truck(); // OK
+    // return new Truck(); // OK
     return new Sedan(); // OK
   }
 
 }
-
-
-
 
 

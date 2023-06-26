@@ -8,6 +8,13 @@ import bitcamp.myapp.handler.BoardUpdateListener;
 import bitcamp.myapp.handler.FooterListener;
 import bitcamp.myapp.handler.HeaderListener;
 import bitcamp.myapp.handler.HelloListener;
+import bitcamp.myapp.handler.MemberAddListener;
+import bitcamp.myapp.handler.MemberDeleteListener;
+import bitcamp.myapp.handler.MemberDetailListener;
+import bitcamp.myapp.handler.MemberListListener;
+import bitcamp.myapp.handler.MemberUpdateListener;
+import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Member;
 import bitcamp.util.ArrayList;
 import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.LinkedList;
@@ -18,20 +25,20 @@ public class App {
 
   public static void main(String[] args) {
 
-    ArrayList memberList = new ArrayList();
-    LinkedList boardList = new LinkedList();
-    LinkedList readingList = new LinkedList();
+    ArrayList<Member> memberList = new ArrayList<>();
+    LinkedList<Board> boardList = new LinkedList<>();
+    LinkedList<Board> readingList = new LinkedList<>();
 
     BreadcrumbPrompt prompt = new BreadcrumbPrompt();
 
     MenuGroup mainMenu = new MenuGroup("메인");
 
     MenuGroup memberMenu = new MenuGroup("회원");
-    memberMenu.add(new Menu("등록", new BoardAddListener(memberList)));
-    memberMenu.add(new Menu("목록"));
-    memberMenu.add(new Menu("조회"));
-    memberMenu.add(new Menu("변경"));
-    memberMenu.add(new Menu("삭제"));
+    memberMenu.add(new Menu("등록", new MemberAddListener(memberList)));
+    memberMenu.add(new Menu("목록", new MemberListListener(memberList)));
+    memberMenu.add(new Menu("조회", new MemberDetailListener(memberList)));
+    memberMenu.add(new Menu("변경", new MemberUpdateListener(memberList)));
+    memberMenu.add(new Menu("삭제", new MemberDeleteListener(memberList)));
     mainMenu.add(memberMenu);
 
     MenuGroup boardMenu = new MenuGroup("게시글");

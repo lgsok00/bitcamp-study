@@ -5,7 +5,7 @@ import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.List;
 
 public class MemberDetailListener extends AbstractMemberListener {
-  public MemberDetailListener(List list) {
+  public MemberDetailListener(List<Member> list) {
     super(list);
   }
 

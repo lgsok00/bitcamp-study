@@ -15,15 +15,17 @@ import com.google.gson.reflect.TypeToken;
 public class Exam0621 {
   public static void main(String[] args) {
 
-    String jsonStr = "[{\"position\":\"대리\",\"fax\":\"02-1111-2222\",\"no\":101,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"registeredDate\":\"9월 16, 2021\"},{\"major\":\"컴퓨터공학\",\"hourPay\":10000,\"no\":103,\"name\":\"안창호\",\"email\":\"ahn@test.com\",\"registeredDate\":\"9월 16, 2021\"}]";
+    String jsonStr =
+        "[{\"position\":\"대리\",\"fax\":\"02-1111-2222\",\"no\":101,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"registeredDate\":\"9월 16, 2021\"},{\"major\":\"컴퓨터공학\",\"hourPay\":10000,\"no\":103,\"name\":\"안창호\",\"email\":\"ahn@test.com\",\"registeredDate\":\"9월 16, 2021\"}]";
 
     // JSON 데이터를 가지고 객체를 생성할 때 특정 타입의 객체로 만들어주는 어댑터
     // => 프로퍼티의 존재 유무에 따라 Manager를 생성하든가 Teacher를 생성하는 일을 한다.
     class MyJsonDeserializer implements JsonDeserializer<Member> {
       @Override
-      public Member deserialize(JsonElement json, Type typeOfT,
-          JsonDeserializationContext context) throws JsonParseException {
+      public Member deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+          throws JsonParseException {
 
+        System.out.println(json);
         JsonObject jsonObject = json.getAsJsonObject();
 
         if (jsonObject.get("position") != null) {
@@ -55,8 +57,5 @@ public class Exam0621 {
     }
   }
 }
-
-
-
 
 

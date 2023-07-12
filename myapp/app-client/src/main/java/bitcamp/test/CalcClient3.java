@@ -8,11 +8,13 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-// Stateful 방식으로 통신하기
+// Stateless 방식 + Session 으로 통신하기
 public class CalcClient3 {
   static Pattern pattern = Pattern.compile("[0-9]+|\\p{Punct}");
 
   public static void main(String[] args) {
+    String uuid = "";
+
     try (Scanner keyScan = new Scanner(System.in)) {
       while (true) {
         System.out.print("계산식(예: + 3)> ");
@@ -33,9 +35,11 @@ public class CalcClient3 {
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             DataInputStream in = new DataInputStream(socket.getInputStream())) {
 
+          out.writeUTF(uuid);
           out.writeUTF(expr.op);
           out.writeInt(expr.value);
 
+          uuid = in.readUTF();
           String result = in.readUTF();
           System.out.printf("결과: %s\n", result);
 

@@ -19,7 +19,7 @@ public class MySQLMemberDao implements MemberDao {
   @Override
   public void insert(Member member) {
     try (PreparedStatement stmt = con.prepareStatement(
-        "insert into myapp_member(name, email, password, gender) values(?, ?, ?, ?)")) {
+        "insert into myapp_member(name, email, password, gender) values(?, ?, sha1(?), ?)")) {
 
       stmt.setString(1, member.getName());
       stmt.setString(2, member.getEmail());
@@ -60,8 +60,9 @@ public class MySQLMemberDao implements MemberDao {
 
   @Override
   public Member findBy(int no) {
-    try (PreparedStatement stmt = con.prepareStatement(
-        "select member_no, name, email, gender" + " from myapp_member" + " where member_no=?")) {
+    try (PreparedStatement stmt =
+        con.prepareStatement("select member_no, name, email, gender, created_date"
+            + " from myapp_member" + " where member_no=?")) {
 
       stmt.setInt(1, no);
 
@@ -72,6 +73,7 @@ public class MySQLMemberDao implements MemberDao {
           m.setName(rs.getString("name"));
           m.setEmail(rs.getString("email"));
           m.setGender(rs.getString("gender").charAt(0));
+          m.setCreatedDate(rs.getDate("created_date"));
 
           return m;
         }
@@ -86,7 +88,7 @@ public class MySQLMemberDao implements MemberDao {
   @Override
   public int update(Member member) {
     try (PreparedStatement stmt = con.prepareStatement(
-        "update myapp_member set name=?, email=?, password=?, gender=? where member_no=?")) {
+        "update myapp_member set name=?, email=?, password=sha1(?), gender=? where member_no=?")) {
 
       stmt.setString(1, member.getName());
       stmt.setString(2, member.getEmail());

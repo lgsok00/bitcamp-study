@@ -26,6 +26,9 @@ create table myapp_member(
 alter table myapp_member
   add constraint primary key (member_no),
   modify column member_no int not null auto_increment;
+
+alter table myapp_member
+  add constraint myapp_member_uk unique (email);
   
 
 -- 게시파 작성자에 대해 외부키 설정

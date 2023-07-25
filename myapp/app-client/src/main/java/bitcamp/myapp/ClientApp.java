@@ -3,8 +3,8 @@ package bitcamp.myapp;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.util.Scanner;
 import bitcamp.net.NetProtocol;
-import bitcamp.util.Prompt;
 
 public class ClientApp {
 
@@ -30,26 +30,24 @@ public class ClientApp {
 
 
   public void execute() {
-    try (Prompt prompt = new Prompt();
+    try (Scanner keyscan = new Scanner(System.in);
         Socket socket = new Socket(this.ip, this.port);
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
         DataInputStream in = new DataInputStream(socket.getInputStream())) {
 
-      while (true) {
-        String input = prompt.inputString("> ");
+      System.out.println(in.readUTF());
 
-        out.writeUTF(input);
-        if (input.equals("exit")) {
+      while (true) {
+        String response = in.readUTF();
+        if (response.equals(NetProtocol.RESPONSE_END)) {
+          continue;
+        } else if (response.equals(NetProtocol.PROMPT)) {
+          out.writeUTF(keyscan.nextLine());
+          continue;
+        } else if (response.equals(NetProtocol.NET_END)) {
           break;
         }
-
-        while (true) {
-          String response = in.readUTF();
-          if (response.equals(NetProtocol.RESPONSE_END)) {
-            break;
-          }
-          System.out.println(response);
-        }
+        System.out.print(response);
       }
 
     } catch (Exception e) {

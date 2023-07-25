@@ -1,5 +1,6 @@
 package bitcamp.myapp.handler;
 
+import java.io.IOException;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.BreadcrumbPrompt;
@@ -13,12 +14,12 @@ public class MemberAddListener implements MemberActionListener {
   }
 
   @Override
-  public void service(BreadcrumbPrompt prompt) {
+  public void service(BreadcrumbPrompt prompt) throws IOException {
     Member m = new Member();
     m.setName(prompt.inputString("이름? "));
     m.setEmail(prompt.inputString("이메일? "));
     m.setPassword(prompt.inputString("암호? "));
-    m.setGender(MemberActionListener.inputGender((char)0, prompt));
+    m.setGender(MemberActionListener.inputGender((char) 0, prompt));
 
     memberDao.insert(m);
   }

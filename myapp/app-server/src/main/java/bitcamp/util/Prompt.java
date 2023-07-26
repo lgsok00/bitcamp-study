@@ -3,19 +3,32 @@ package bitcamp.util;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import bitcamp.net.NetProtocol;
 
 public class Prompt {
 
+  Map<String, Object> context = new HashMap<>();
   StringBuffer buf = new StringBuffer();
   DataInputStream in;
   DataOutputStream out;
 
   // default constructor 정의
+
   public Prompt(DataInputStream in, DataOutputStream out) {
     this.in = in;
     this.out = out;
   }
+
+  public void setAttrubute(String name, Object value) {
+    context.put(name, value);
+  }
+
+  public Object getAttribute(String name) {
+    return context.get(name);
+  }
+
 
   public String inputString(String title, Object... args) throws IOException {
     this.out.writeUTF(String.format(title, args));
@@ -47,7 +60,7 @@ public class Prompt {
   public void end() throws IOException {
     this.out.writeUTF(buf.toString());
     this.out.writeUTF(NetProtocol.RESPONSE_END);
-    buf.setLength(0); // 버퍼 초기화
+    buf.setLength(0);
   }
 
 }

@@ -2,8 +2,12 @@ package bitcamp.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
 
-// - 스레드 별로 DB 커넥션을 보관한다.
+// - 스레드 별로 DB Connection을 관리하고 제공하는 역할
+// - 풀링(Pooling) 기법을 이용하여 DB Connection 재활용
+// - GoF의 Flyweight 패턴
 //
 public class DataSource {
 
@@ -11,6 +15,9 @@ public class DataSource {
   String jdbcUrl;
   String username;
   String password;
+
+  // 커넥션 목록을 유지하기 위한 객체: 커넥션 풀(Connection Pool)
+  List<Connection> connectionPool = new ArrayList<>();
 
   // 현재 스레드에 값을 넣고 꺼내는 일을 하는 객체
   ThreadLocal<Connection> connectionBox = new ThreadLocal<>();
@@ -32,16 +39,25 @@ public class DataSource {
     // connectionBox를 통해 현재 스레드 보관소에 저장된 Connection 객체를 꺼낸다.
     Connection con = connectionBox.get();
 
+    // Connection 꺼내기
     if (con == null) {
-      // 현재 스레드의 보관된 Connection 객체가 보관되어 있지 않다면 새로 생성한다.
-      con = DriverManager.getConnection(jdbcUrl, username, password);
-      con.setAutoCommit(true);
+      // 현재 스레드에 장착된 DB Connection 객체가 없다면,
+      if (connectionPool.size() > 0) {
+        // 커넥션 풀에 사용할 수 있는 Connection 객체가 있다면 꺼낸다.
+        con = connectionPool.remove(0);
+        System.out.printf("[%s] - DB 커넥션 풀에서 꺼냄!\n", Thread.currentThread().getName());
+      } else {
+        // 커넥션 풀에 사용할 Connection 객체가 없다면 새로 생성한다.
+        con = DriverManager.getConnection(jdbcUrl, username, password);
+        con.setAutoCommit(true);
+        System.out.printf("[%s] - 새 DB Connection 생성!\n", Thread.currentThread().getName());
+      }
 
       // connectionBox를 통해 새로 생성한 Connection 객체를 현재 스레드에 저장한다.
       connectionBox.set(con);
-      System.out.printf("[%s] - 커넥션 생성!\n", Thread.currentThread().getName());
+      System.out.printf("[%s] - 스레드에 Connection 객체 보관!\n", Thread.currentThread().getName());
     } else {
-      System.out.printf("[%s] - 스레드에 보관된 커넥션 사용!\n", Thread.currentThread().getName());
+      System.out.printf("[%s] - 스레드에 보관된 Connection 사용!\n", Thread.currentThread().getName());
     }
     return con;
   }
@@ -50,12 +66,14 @@ public class DataSource {
     // 스레드가 작업을 끝냈으면, 이 스레드에 보관된 Connection 객체를 제거한다.
     Connection con = connectionBox.get();
     if (con != null) {
-      try {
-        con.close();
-      } catch (Exception e) {
-      }
+      // 스레드가 사용한 DB Connection을 다른 스레드에서 사용할 수 있도록 커넥션 풀에 저장한다.
+      // 다음에 다시 사용해야 하기 때문에 close() 하면 안된다.
+      connectionPool.add(con);
+      System.out.printf("[%s] - 커넥션 풀에 DB Connection 저장!\n", Thread.currentThread().getName());
+
+      // 스레드에서는 제거한다.
       connectionBox.remove();
-      System.out.printf("[%s] - 커넥션 제거!\n", Thread.currentThread().getName());
+      System.out.printf("[%s] - 스레드에서 Connection 제거!\n", Thread.currentThread().getName());
     }
   }
 }

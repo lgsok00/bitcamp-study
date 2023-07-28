@@ -17,7 +17,6 @@ public class Member implements Serializable {
   private char gender;
   private Date createdDate;
 
-
   @Override
   public int hashCode() {
     return Objects.hash(no);

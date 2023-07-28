@@ -16,7 +16,6 @@ public class ClientApp {
     this.port = port;
   }
 
-
   public static void main(String[] args) throws Exception {
     if (args.length < 2) {
       System.out.println("실행 예) java ... bitcamp.myapp.ClientApp 서버주소 포트번호");
@@ -24,10 +23,8 @@ public class ClientApp {
     }
 
     ClientApp app = new ClientApp(args[0], Integer.parseInt(args[1]));
-
     app.execute();
   }
-
 
   public void execute() {
     try (Scanner keyscan = new Scanner(System.in);

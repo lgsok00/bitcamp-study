@@ -25,7 +25,7 @@ public class LoginListener implements MemberActionListener {
       if (loginUser == null) {
         prompt.println("회원 정보가 일치하지 않습니다.");
       } else {
-        prompt.setAttrubute("loginUser", loginUser);
+        prompt.setAttribute("loginUser", loginUser);
         break;
       }
       prompt.end();

@@ -25,14 +25,14 @@ public class SqlSessionFactoryProxy implements SqlSessionFactory {
     }
   }
 
-
   public SqlSession openSession() {
     return original.openSession();
   }
 
   public SqlSession openSession(boolean autoCommit) {
+
     if (!autoCommit) {
-      // 수동 commit으로 동작하는 SqlSession을 원한다는 것은
+      // 수동 커밋으로 동작하는 SqlSession 을 원한다는 것은
       // 여러 데이터 변경 작업을 묶어서 다루겠다는 의미다.
       // 그렇게 하려면 동일한 SqlSession 객체를 사용해야 한다.
       // 이를 위해 스레드에 SqlSession 객체를 보관해두고 리턴한다.

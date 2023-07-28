@@ -32,5 +32,3 @@ public class BreadcrumbPrompt extends Prompt {
     return this.inputString(titleBuilder.toString());
   }
 }
-
-

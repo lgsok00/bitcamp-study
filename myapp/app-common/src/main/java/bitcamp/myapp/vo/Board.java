@@ -16,7 +16,6 @@ public class Board implements Serializable {
   private Timestamp createdDate;
   private int category;
 
-
   @Override
   public int hashCode() {
     return Objects.hash(no);

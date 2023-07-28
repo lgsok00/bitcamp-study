@@ -14,21 +14,18 @@ public class Prompt {
   DataInputStream in;
   DataOutputStream out;
 
-  // default constructor 정의
-
   public Prompt(DataInputStream in, DataOutputStream out) {
     this.in = in;
     this.out = out;
   }
 
-  public void setAttrubute(String name, Object value) {
+  public void setAttribute(String name, Object value) {
     context.put(name, value);
   }
 
   public Object getAttribute(String name) {
     return context.get(name);
   }
-
 
   public String inputString(String title, Object... args) throws IOException {
     this.out.writeUTF(String.format(title, args));
@@ -62,5 +59,4 @@ public class Prompt {
     this.out.writeUTF(NetProtocol.RESPONSE_END);
     buf.setLength(0);
   }
-
 }

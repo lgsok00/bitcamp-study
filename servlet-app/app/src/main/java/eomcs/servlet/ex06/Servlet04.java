@@ -12,7 +12,7 @@ public class Servlet04 extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    System.out.println("ex06/s4 => init()");
+    System.out.println("/ex06/s4 => init()");
 
     ServletConfig config = this.getServletConfig();
 

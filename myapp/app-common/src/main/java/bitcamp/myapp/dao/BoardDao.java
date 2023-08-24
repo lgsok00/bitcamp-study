@@ -19,9 +19,9 @@ public interface BoardDao {
 
   int insertFiles(Board board);
 
-  // 첨부파일 찾기
   AttachedFile findFileBy(int no);
 
-  // deleteFile 추가
   int deleteFile(int fileNo);
+
+  int deleteFiles(int boardNo);
 }

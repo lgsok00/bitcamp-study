@@ -26,6 +26,9 @@ dependencies {
     // Thumbnail 이미지 생성기
     implementation 'net.coobird:thumbnailator:0.4.20'
 
+    // JSTL 라이브러리
+    implementation 'jstl:jstl:1.2'
+
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 
     // testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

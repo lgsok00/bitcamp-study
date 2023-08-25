@@ -1,21 +1,20 @@
 <%@ page language="java" pageEncoding="UTF-8"
-         contentType="text/html;charset=UTF-8" %> <%-- directive elememt --%>
+         contentType="text/html;charset=UTF-8"
+         trimDirectiveWhitespaces="true"
+         errorPage="/error.jsp"
+%> <%-- directive elememt --%>
 
-<%@ page import="java.io.IOException" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.List" %>
-<%@ page import="bitcamp.myapp.dao.BoardDao" %>
 <%@ page import="bitcamp.myapp.vo.Board" %>
-<%@ page import="bitcamp.util.NcpObjectStorageService" %>
-<%@ page import="org.apache.ibatis.session.SqlSessionFactory" %>
 
 <%!
     // declaration element
     SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 %>
 
-
 <%
+    request.setAttribute("refresh", "2;url=list.jsp?category=" + request.getParameter("category"));
     // scriptlet (scripting element)
     int category = Integer.parseInt(request.getParameter("category"));
 %>
@@ -45,8 +44,9 @@
     </tr>
     </thead>
 
+    <jsp:useBean id="boardDao" type="bitcamp.myapp.dao.BoardDao" scope="application"/>
+
     <%
-        BoardDao boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
         List<Board> list = boardDao.findAll(category);
     %>
     <tbody>

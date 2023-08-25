@@ -2,11 +2,11 @@
          contentType="text/html;charset=UTF-8"
          trimDirectiveWhitespaces="true" %> <%-- directive elememt --%>
 
-<%@ page import="bitcamp.myapp.dao.MemberDao" %>
 <%@ page import="bitcamp.myapp.vo.Member" %>
 
+<jsp:useBean id="memberDao" type="bitcamp.myapp.dao.MemberDao" scope="application"/>
+
 <%
-  MemberDao memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
   Member member = memberDao.findBy(Integer.parseInt(request.getParameter("no")));
 %>
 <!DOCTYPE html>

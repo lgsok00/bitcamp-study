@@ -10,17 +10,17 @@ import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.dao.MySQLBoardDao;
 import bitcamp.myapp.dao.MySQLMemberDao;
-import bitcamp.myapp.handler.BoardAddListener;
-import bitcamp.myapp.handler.BoardDeleteListener;
-import bitcamp.myapp.handler.BoardDetailListener;
-import bitcamp.myapp.handler.BoardListListener;
-import bitcamp.myapp.handler.BoardUpdateListener;
-import bitcamp.myapp.handler.LoginListener;
-import bitcamp.myapp.handler.MemberAddListener;
-import bitcamp.myapp.handler.MemberDeleteListener;
-import bitcamp.myapp.handler.MemberDetailListener;
-import bitcamp.myapp.handler.MemberListListener;
-import bitcamp.myapp.handler.MemberUpdateListener;
+import bitcamp.myapp.controller.BoardAddListener;
+import bitcamp.myapp.controller.BoardDeleteListener;
+import bitcamp.myapp.controller.BoardDetailListener;
+import bitcamp.myapp.controller.BoardListListener;
+import bitcamp.myapp.controller.BoardUpdateListener;
+import bitcamp.myapp.controller.LoginListener;
+import bitcamp.myapp.controller.MemberAddListener;
+import bitcamp.myapp.controller.MemberDeleteListener;
+import bitcamp.myapp.controller.MemberDetailListener;
+import bitcamp.myapp.controller.MemberListListener;
+import bitcamp.myapp.controller.MemberUpdateListener;
 
 public class DispatcherListener implements ActionListener {
 

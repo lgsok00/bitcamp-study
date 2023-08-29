@@ -1,4 +1,4 @@
-package bitcamp.myapp.handler;
+package bitcamp.myapp.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.List;

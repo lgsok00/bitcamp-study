@@ -1,4 +1,4 @@
-package bitcamp.myapp.handler;
+package bitcamp.myapp.controller;
 
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.ActionListener;

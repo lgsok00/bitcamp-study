@@ -1,8 +1,8 @@
 package bitcamp.myapp;
 
-import bitcamp.myapp.handler.BoardHandler;
-import bitcamp.myapp.handler.BoardHandler2;
-import bitcamp.myapp.handler.MemberHandler;
+import bitcamp.myapp.controller.BoardHandler;
+import bitcamp.myapp.controller.BoardHandler2;
+import bitcamp.myapp.controller.MemberHandler;
 import bitcamp.util.Prompt;
 
 public class App {

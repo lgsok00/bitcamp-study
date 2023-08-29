@@ -1,4 +1,4 @@
-package bitcamp.myapp.handler;
+package bitcamp.myapp.controller;
 
 import java.io.File;
 import java.io.IOException;

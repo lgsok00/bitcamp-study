@@ -3,7 +3,7 @@ package bitcamp.myapp.listener;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
-import bitcamp.myapp.handler.InitServlet;
+import bitcamp.myapp.controller.InitServlet;
 import bitcamp.util.SqlSessionFactoryProxy;
 
 // 요청이나 응답을 수행했을 때 Servlet 컨테이너로 부터 알림을 받는 Observer 객체

@@ -1,4 +1,4 @@
-package bitcamp.myapp.handler;
+package bitcamp.myapp.controller;
 
 import java.io.IOException;
 import bitcamp.myapp.dao.MemberDao;

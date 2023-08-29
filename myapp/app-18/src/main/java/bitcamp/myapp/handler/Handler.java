@@ -1,4 +1,4 @@
-package bitcamp.myapp.handler;
+package bitcamp.myapp.controller;
 
 // 핸들러 사용 규칙
 // => 메서드 호출 규칙을 정의 (객체 사용 규칙을 정의)

@@ -1,17 +1,15 @@
 package bitcamp.myapp.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import bitcamp.myapp.dao.BoardDao;
+import bitcamp.myapp.vo.Board;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import bitcamp.myapp.dao.BoardDao;
-import bitcamp.myapp.vo.AttachedFile;
-import bitcamp.myapp.vo.Board;
-import org.apache.ibatis.session.SqlSessionFactory;
+import java.io.IOException;
 
 @WebServlet("/board/detail")
 public class BoardDetailController extends HttpServlet {
@@ -36,13 +34,12 @@ public class BoardDetailController extends HttpServlet {
         sqlSessionFactory.openSession(false).commit();
         request.setAttribute("board", board);
       }
-      response.setContentType("text/html;charset=UTF-8");
-      request.getRequestDispatcher("/board/detail.jsp").include(request, response);
+      request.setAttribute("viewUrl", "/WEB-INF/jsp/board/detail.jsp");
 
     } catch (Exception e) {
       sqlSessionFactory.openSession(false).rollback();
       request.setAttribute("refresh", "5;url=/board/list?category" + request.getParameter("category"));
-      throw new ServletException(e);
+      request.setAttribute("exception", e);
     }
   }
 }

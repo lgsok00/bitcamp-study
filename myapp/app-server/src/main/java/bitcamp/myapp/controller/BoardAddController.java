@@ -1,7 +1,12 @@
 package bitcamp.myapp.controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import bitcamp.myapp.dao.BoardDao;
+import bitcamp.myapp.vo.AttachedFile;
+import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Member;
+import bitcamp.util.NcpObjectStorageService;
+import org.apache.ibatis.session.SqlSessionFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
-import bitcamp.myapp.dao.BoardDao;
-import bitcamp.myapp.vo.AttachedFile;
-import bitcamp.myapp.vo.Board;
-import bitcamp.myapp.vo.Member;
-import bitcamp.util.NcpObjectStorageService;
-import org.apache.ibatis.session.SqlSessionFactory;
+import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/board/add")
 
@@ -27,8 +27,7 @@ public class BoardAddController extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-    request.getRequestDispatcher("/board/form.jsp").include(request, response);
+    request.setAttribute("viewUrl","/WEB-INF/jsp/board/form.jsp");
   }
 
   @Override
@@ -37,7 +36,9 @@ public class BoardAddController extends HttpServlet {
 
     Member loginUser = (Member) request.getSession().getAttribute("loginUser");
     if (loginUser == null) {
-      response.sendRedirect("/auth/login");
+      // 일단 Client가 보낸 파일을 읽는다. 그래야 응답 가능!
+      request.getParts();
+      request.setAttribute("viewUrl", "redirect:../auth/login");
       return;
     }
 
@@ -71,14 +72,14 @@ public class BoardAddController extends HttpServlet {
         boardDao.insertFiles(board);
       }
       sqlSessionFactory.openSession(false).commit();
-      response.sendRedirect("list?category=" + request.getParameter("category"));
+      request.setAttribute("viewUrl", "redirect:list?category=" + request.getParameter("category"));
 
 
     } catch (Exception e) {
       sqlSessionFactory.openSession(false).rollback();
       request.setAttribute("message", "게시글 등록 오류!");
       request.setAttribute("refresh", "2;url=list?category=" + request.getParameter("category"));
-      throw new ServletException(e);
+      request.setAttribute("exception", e);
     }
   }
 }

@@ -12,7 +12,7 @@
 
 <h1>로그인</h1>
 
-<form action='/auth/login' method='post'>
+<form action='login' method='post'>
   <table border='1'>
     <tr>
       <th>이메일</th>

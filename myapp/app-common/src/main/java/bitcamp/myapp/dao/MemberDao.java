@@ -1,7 +1,9 @@
 package bitcamp.myapp.dao;
 
-import java.util.List;
 import bitcamp.myapp.vo.Member;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MemberDao {
   void insert(Member member);
@@ -10,7 +12,7 @@ public interface MemberDao {
 
   Member findBy(int no);
 
-  Member findByEmailAndPassword(Member m);
+  Member findByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 
   int update(Member member);
 

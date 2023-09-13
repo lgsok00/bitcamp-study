@@ -1,6 +1,5 @@
 package bitcamp.config;
 
-import bitcamp.app2.Controller04_1_Interceptor1;
 import bitcamp.app2.Controller04_1_Interceptor2;
 import bitcamp.app2.Controller04_1_Interceptor3;
 import bitcamp.app2.Controller04_1_Interceptor4;
@@ -48,7 +47,7 @@ public class App2Config implements WebMvcConfigurer {
     // => 인터셉터를 적용할 URL을 지정하지 않으면
     // 현재 프론트 컨트롤러의 모든 요청에 대해 적용된다.
     //
-    registry.addInterceptor(new Controller04_1_Interceptor1());
+    // registry.addInterceptor(new Controller04_1_Interceptor1());
 
     // 2) 특정 요청에 대해 실행할 인터셉터 등록하기
     // => 패턴: /c04_1/*

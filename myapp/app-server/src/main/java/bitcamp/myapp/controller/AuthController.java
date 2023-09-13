@@ -4,6 +4,8 @@ import bitcamp.myapp.service.MemberService;
 import bitcamp.myapp.vo.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/auth")
@@ -25,8 +26,8 @@ public class AuthController {
   }
 
   @GetMapping("form")
-  public String form() {
-    return "/WEB-INF/jsp/auth/form.jsp";
+  public void form(@CookieValue(defaultValue = "") String email, Model model) {
+    model.addAttribute("email", email);
   }
 
   @PostMapping("login")
@@ -35,10 +36,9 @@ public class AuthController {
           String password,
           String saveEmail,
           HttpSession session,
-          Map<String, Object> model,
+          Model model,
           HttpServletResponse response) throws Exception {
 
-    // Cookie
     if (saveEmail != null) {
       Cookie cookie = new Cookie("email", email);
       response.addCookie(cookie);
@@ -51,11 +51,10 @@ public class AuthController {
     Member loginUser = memberService.get(email, password);
 
     if (loginUser == null) {
-      model.put("refresh", "2;url=form");
+      model.addAttribute("refresh", "2;url=form");
       throw new Exception("회원 정보가 일치하지 않습니다.");
     }
 
-    // 로그인 정보를 다른 요청에서도 사용할 있도록 세션 보관소에 담아 둔다.
     session.setAttribute("loginUser", loginUser);
     return "redirect:/";
   }
